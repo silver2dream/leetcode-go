@@ -1,0 +1,125 @@
+package tree
+
+import "fmt"
+
+func NewNode(val any) *Node {
+	p := &Node{
+		Val: val,
+	}
+	return p
+}
+
+type Node struct {
+	Val   any
+	Left  *Node
+	Right *Node
+}
+
+func NewListTree(val []any) ITree {
+	p := &ListTree{
+		raw: val,
+	}
+	p.buildTree()
+	return p
+}
+
+type ListTree struct {
+	raw  []any
+	root *Node
+}
+
+func (p *ListTree) buildTree() {
+	if len(p.raw) < 1 {
+		return
+	}
+
+	tmp := make([]*Node, 0, cap(p.raw))
+	tmp = append(tmp, p.root)
+	for i := 1; i <= len(p.raw); i++ {
+		now := NewNode(p.raw[i-1])
+		tmp = append(tmp, now)
+		if i == 1 {
+			continue
+		}
+
+		parent := i / 2
+		if tmp[parent].Left == nil {
+			tmp[parent].Left = now
+			continue
+		}
+		if tmp[parent].Right == nil {
+			tmp[parent].Right = now
+			continue
+		}
+	}
+	p.root = tmp[1]
+}
+
+func (p *ListTree) addNode(now *Node, val *Node) bool {
+	if now == nil {
+		now = val
+		return true
+	} else if now.Left == nil {
+		now.Left = val
+		return true
+	} else if now.Right == nil {
+		now.Right = val
+		return true
+	} else if now.Left != nil && now.Right != nil {
+		p.addNode(now.Left, val)
+		p.addNode(now.Right, val)
+	}
+	return false
+}
+
+func (p *ListTree) PreorderTraversal() {
+	p.preTraversal(p.root)
+	fmt.Println()
+}
+
+func (p *ListTree) preTraversal(node *Node) {
+	if node == nil {
+		return
+	}
+
+	p.print(node)
+	p.preTraversal(node.Left)
+	p.preTraversal(node.Right)
+}
+
+func (p *ListTree) InorderTraversal() {
+	p.inTraversal(p.root)
+	fmt.Println()
+}
+
+func (p *ListTree) inTraversal(node *Node) {
+	if node == nil {
+		return
+	}
+
+	p.inTraversal(node.Left)
+	p.print(node)
+	p.inTraversal(node.Right)
+}
+
+func (p *ListTree) PostorderTraversal() {
+	p.postTraversal(p.root)
+	fmt.Println()
+}
+
+func (p *ListTree) postTraversal(node *Node) {
+	if node == nil {
+		return
+	}
+
+	p.postTraversal(node.Left)
+	p.postTraversal(node.Right)
+	p.print(node)
+}
+
+func (p *ListTree) print(node *Node) {
+	if node == nil || node.Val == nil {
+		return
+	}
+	fmt.Print(node.Val, " ")
+}
