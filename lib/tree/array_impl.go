@@ -20,6 +20,22 @@ type ArrayTree struct {
 	container []any
 }
 
+func (p *ArrayTree) QuickSort() {
+	var sort []any
+	for _, val := range p.container {
+		if val != nil {
+			sort = append(sort, val)
+		}
+	}
+	p.container = sort
+	if len(p.container) < 1 {
+		return
+	}
+	p.quickSort(p.container)
+
+	fmt.Println(sort)
+}
+
 func (p *ArrayTree) PreorderTraversal() {
 	if len(p.container) < 1 {
 		return
@@ -77,4 +93,51 @@ func (p *ArrayTree) print(val any) {
 		return
 	}
 	fmt.Print(val, " ")
+}
+
+func (p *ArrayTree) quickSort(sort []any) {
+	if len(sort) < 2 {
+		return
+	}
+
+	length := len(sort)
+	pivot := length / 2
+	left := 0
+	right := length - 2
+	sort[pivot], sort[length-1] = sort[length-1], sort[pivot]
+	pivot = length - 1
+	for {
+		for {
+			if sort[left].(int) > sort[pivot].(int) || left == right {
+				break
+			}
+			left++
+		}
+
+		for {
+			if sort[right].(int) < sort[pivot].(int) || left == right {
+				break
+			}
+			right--
+		}
+
+		if left == right {
+			break
+		}
+		sort[left], sort[right] = sort[right], sort[left]
+	}
+
+	if sort[left].(int) >= sort[pivot].(int) {
+		sort[left], sort[pivot] = sort[pivot], sort[left]
+		pivot = left
+	}
+
+	start := pivot + 1
+	end := pivot - 1
+	if end < 0 {
+		end = 0
+	}
+
+	p.quickSort(sort[:end])
+	p.quickSort(sort[start:])
 }

@@ -4,4 +4,5 @@ type ITree interface {
 	PreorderTraversal()
 	InorderTraversal()
 	PostorderTraversal()
+	QuickSort()
 }

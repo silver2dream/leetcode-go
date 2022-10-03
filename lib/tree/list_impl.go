@@ -28,6 +28,11 @@ type ListTree struct {
 	root *Node
 }
 
+func (p *ListTree) QuickSort() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (p *ListTree) buildTree() {
 	if len(p.raw) < 1 {
 		return

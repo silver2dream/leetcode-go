@@ -21,4 +21,6 @@ func main() {
 	iTreeL.PreorderTraversal()
 	iTreeL.InorderTraversal()
 	iTreeL.PostorderTraversal()
+	fmt.Println()
+	iTree.QuickSort()
 }
