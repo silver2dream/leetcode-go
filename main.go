@@ -22,5 +22,6 @@ func main() {
 	iTreeL.InorderTraversal()
 	iTreeL.PostorderTraversal()
 	fmt.Println()
-	iTree.QuickSort()
+	//iTree.QuickSort()
+	iTree.MergeSort()
 }

@@ -20,6 +20,73 @@ type ArrayTree struct {
 	container []any
 }
 
+func (p *ArrayTree) MergeSort() {
+	var sort []any
+	for _, val := range p.container {
+		if val != nil {
+			sort = append(sort, val)
+		}
+	}
+	p.container = sort
+	if len(p.container) < 1 {
+		return
+	}
+	p.mergeSort(p.container, 0, len(p.container)-1)
+
+	fmt.Println(sort)
+}
+
+func (p *ArrayTree) mergeSort(sort []any, start, end int) {
+	if start == end {
+		return
+	}
+
+	pivot := (start + end) / 2
+	p.mergeSort(sort, start, pivot)
+	p.mergeSort(sort, pivot+1, end)
+
+	var tmp []any
+	count := 0
+	left := start
+	right := pivot + 1
+
+	for count < end-start+1 {
+		var leftVal any
+		var rightVal any
+
+		if left <= pivot {
+			leftVal = sort[left]
+		}
+
+		if right <= end {
+			rightVal = sort[right]
+		}
+
+		if leftVal != nil && rightVal != nil {
+			if leftVal.(int) <= rightVal.(int) {
+				tmp = append(tmp, leftVal)
+				left++
+			} else if rightVal.(int) < leftVal.(int) {
+				tmp = append(tmp, rightVal)
+				right++
+			}
+		} else if leftVal == nil && rightVal != nil {
+			tmp = append(tmp, rightVal)
+			right++
+		} else if rightVal == nil && leftVal != nil {
+			tmp = append(tmp, leftVal)
+			left++
+		}
+
+		count++
+	}
+
+	for i := 0; i < len(tmp); i++ {
+		sort[i+start] = tmp[i]
+	}
+
+}
+
 func (p *ArrayTree) QuickSort() {
 	var sort []any
 	for _, val := range p.container {

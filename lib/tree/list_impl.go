@@ -28,6 +28,11 @@ type ListTree struct {
 	root *Node
 }
 
+func (p *ListTree) MergeSort() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (p *ListTree) QuickSort() {
 	//TODO implement me
 	panic("implement me")

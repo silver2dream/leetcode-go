@@ -5,4 +5,5 @@ type ITree interface {
 	InorderTraversal()
 	PostorderTraversal()
 	QuickSort()
+	MergeSort()
 }
