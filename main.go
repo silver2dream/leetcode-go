@@ -33,7 +33,6 @@ func main() {
 	}
 	bst := tree.NewBinarySearchTree(nums)
 	bst.Add(8)
-	bst.Delete(2)
 	fmt.Println(bst.GetMin().(int))
 	fmt.Println(bst.GetMax().(int))
 }

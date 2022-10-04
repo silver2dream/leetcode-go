@@ -93,7 +93,11 @@ func (p *BinarySearchTree) delete(node *Node, val any) *Node {
 }
 
 func (p *BinarySearchTree) GetMin() any {
-	return p.getMin(p.root)
+	if p.root == nil {
+		return nil
+	}
+
+	return p.getMin(p.root).Val
 }
 
 func (p *BinarySearchTree) getMin(root *Node) *Node {
@@ -109,7 +113,15 @@ func (p *BinarySearchTree) getMin(root *Node) *Node {
 }
 
 func (p *BinarySearchTree) GetMax() any {
-	node := p.root
+	if p.root == nil {
+		return nil
+	}
+
+	return p.getMax(p.root).Val
+}
+
+func (p *BinarySearchTree) getMax(root *Node) *Node {
+	node := root
 	for {
 		if node.Right == nil {
 			break
@@ -117,5 +129,5 @@ func (p *BinarySearchTree) GetMax() any {
 
 		node = node.Right
 	}
-	return node.Val
+	return node
 }
