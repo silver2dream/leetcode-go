@@ -20,6 +20,21 @@ type ArrayTree struct {
 	container []any
 }
 
+func (p *ArrayTree) BFSTraversal() {
+	//finalLayer := (len(p.container) + 1) / 2
+	//for idx, nowLayer := 0, 1; nowLayer < finalLayer; {
+	//	if (idx+1)/2 < nowLayer {
+	//		p.print(p.container[idx])
+	//		idx++
+	//	} else {
+	//		nowLayer++
+	//	}
+	//}
+	for _, val := range p.container {
+		p.print(val)
+	}
+}
+
 func (p *ArrayTree) MergeSort() {
 	var sort []any
 	for _, val := range p.container {

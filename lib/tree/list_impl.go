@@ -1,6 +1,9 @@
 package tree
 
-import "fmt"
+import (
+	"fmt"
+	list "main/lib/linked-list"
+)
 
 func NewNode(val any) *Node {
 	p := &Node{
@@ -26,6 +29,26 @@ func NewListTree(val []any) ITree {
 type ListTree struct {
 	raw  []any
 	root *Node
+}
+
+func (p *ListTree) BFSTraversal() {
+	traversalQ := list.NewQueue()
+	traversalQ.Add(p.root)
+
+	for {
+		if traversalQ.Size() <= 0 {
+			return
+		}
+
+		now := traversalQ.Poll()
+		if now.Val.(*Node) == nil {
+			continue
+		}
+		traversalQ.Add(now.Val.(*Node).Left)
+		traversalQ.Add(now.Val.(*Node).Right)
+
+		p.print(now.Val.(*Node))
+	}
 }
 
 func (p *ListTree) MergeSort() {
