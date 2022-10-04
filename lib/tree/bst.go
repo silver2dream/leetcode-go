@@ -70,9 +70,12 @@ func (p *BinarySearchTree) delete(node *Node, val any) *Node {
 			return node.Left
 		} else if node.Left != nil && node.Right != nil {
 			minNode := p.getMin(node.Right)
-			minNode.Right = node.Right
-			minNode.Left = node.Left
-			return minNode
+			minNode.Val, node.Val = node.Val, minNode.Val
+			child := p.delete(node.Right, val)
+			if node.Right != child {
+				node.Right = child
+			}
+			return node
 		}
 	} else if node.Val.(int) < val.(int) {
 		child := p.delete(node.Right, val)
