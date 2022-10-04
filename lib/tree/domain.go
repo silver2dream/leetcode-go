@@ -8,3 +8,10 @@ type ITree interface {
 	QuickSort()
 	MergeSort()
 }
+
+type IBinarySearchTree interface {
+	Add(val any)
+	Delete(val any)
+	GetMin() any
+	GetMax() any
+}
