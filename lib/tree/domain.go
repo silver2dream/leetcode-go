@@ -14,4 +14,6 @@ type IBinarySearchTree interface {
 	Delete(val any)
 	GetMin() any
 	GetMax() any
+	SortAsc()
+	SortDesc()
 }

@@ -35,4 +35,7 @@ func main() {
 	bst.Add(8)
 	fmt.Println(bst.GetMin().(int))
 	fmt.Println(bst.GetMax().(int))
+	bst.SortAsc()
+	fmt.Println()
+	bst.SortDesc()
 }
