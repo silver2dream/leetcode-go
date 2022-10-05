@@ -88,23 +88,6 @@ func (p *ListTree) buildTree() {
 	p.root = tmp[1]
 }
 
-func (p *ListTree) addNode(now *Node, val *Node) bool {
-	if now == nil {
-		now = val
-		return true
-	} else if now.Left == nil {
-		now.Left = val
-		return true
-	} else if now.Right == nil {
-		now.Right = val
-		return true
-	} else if now.Left != nil && now.Right != nil {
-		p.addNode(now.Left, val)
-		p.addNode(now.Right, val)
-	}
-	return false
-}
-
 func (p *ListTree) PreorderTraversal() {
 	p.preTraversal(p.root)
 	fmt.Println()
