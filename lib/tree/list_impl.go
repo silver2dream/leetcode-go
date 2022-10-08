@@ -31,6 +31,10 @@ type ListTree struct {
 	root *Node
 }
 
+func (p *ListTree) GetRoot() *Node {
+	return p.root
+}
+
 func (p *ListTree) BFSTraversal() {
 	traversalQ := list.NewQueue()
 	traversalQ.Add(p.root)

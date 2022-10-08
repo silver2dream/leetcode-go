@@ -1,6 +1,7 @@
 package tree
 
 type ITree interface {
+	GetRoot() *Node
 	PreorderTraversal()
 	InorderTraversal()
 	PostorderTraversal()

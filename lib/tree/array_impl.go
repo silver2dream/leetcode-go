@@ -20,6 +20,11 @@ type ArrayTree struct {
 	container []any
 }
 
+func (p *ArrayTree) GetRoot() *Node {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (p *ArrayTree) BFSTraversal() {
 	//finalLayer := (len(p.container) + 1) / 2
 	//for idx, nowLayer := 0, 1; nowLayer < finalLayer; {

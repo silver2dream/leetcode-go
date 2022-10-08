@@ -7,16 +7,16 @@ func main() {
 	//	1, 4, nil, 7,
 	//	nil, nil, 3, nil, nil, nil, nil, nil,
 	//}
-	//iTree := tree.NewArrayTree(nums)
+	////iTree := tree.NewArrayTree(nums)
 	////iTree.PreorderTraversal()
 	////iTree.InorderTraversal()
 	////iTree.PostorderTraversal()
 	////fmt.Println()
-	//iTreeL := tree.NewListTree(nums)
+	////iTreeL := tree.NewListTree(nums)
 	////iTreeL.PreorderTraversal()
 	////iTreeL.InorderTraversal()
 	////iTreeL.PostorderTraversal()
-	//iTreeL.BFSTraversal()
+	////iTreeL.BFSTraversal()
 	//fmt.Println()
 	//iTree.BFSTraversal()
 	//iTree.QuickSort()
