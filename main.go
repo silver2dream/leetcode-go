@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"main/lib/tree"
-)
-
 func main() {
 	//nums := []any{
 	//	5,
@@ -38,12 +33,4 @@ func main() {
 	//bst.SortAsc()
 	//fmt.Println()
 	//bst.SortDesc()
-
-	num := []any{66, 78, 27, 35, 6, 2, 44, 58, 29, 76}
-	bht := tree.NewBinaryHeapTree(num)
-	fmt.Println(bht)
-	bht.RemoveFromTop()
-	fmt.Println(bht)
-	bht.AddToBottom(100)
-	fmt.Println(bht)
 }
