@@ -12,6 +12,10 @@ type BinarySearchTree struct {
 	ListTree
 }
 
+func (p *BinarySearchTree) GetRoot() *Node {
+	return p.root
+}
+
 func (p *BinarySearchTree) SortAsc() {
 	//dfs left inorder traversal.
 	p.dfsLeftTraversal(p.root)

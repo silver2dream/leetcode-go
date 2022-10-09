@@ -11,6 +11,7 @@ type ITree interface {
 }
 
 type IBinarySearchTree interface {
+	GetRoot() *Node
 	Add(val any)
 	Delete(val any)
 	GetMin() any
