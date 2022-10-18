@@ -30,7 +30,7 @@ func TestRemoveElement(t *testing.T) {
 		convey.Convey("val=2", func() {
 			nums := []int{0, 1, 2, 2, 3, 0, 4, 2}
 			result := removeElement(nums, 2)
-			expect := 3
+			expect := 5
 			convey.So(result, convey.ShouldResemble, expect)
 
 			finalNums := []int{0, 1, 4, 0, 3}
