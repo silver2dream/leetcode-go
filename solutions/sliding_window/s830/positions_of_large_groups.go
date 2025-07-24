@@ -1,16 +1,16 @@
 package test
 
 func largeGroupPositions(s string) [][]int {
-	var group [][]int
+	var res [][]int
 	l := 0
-	n := len(s)
-	for r := 1; r <= n; r++ {
-		if r == n || s[r] != s[l] {
-			if r-l >= 3 {
-				group = append(group, []int{l, r - 1})
+	for r := 0; r <= len(s); r++ {
+		if r == len(s) || s[r] != s[l] {
+			if r-l >= 3 && s[r-1] == s[l] {
+				res = append(res, []int{l, r - 1})
 			}
 			l = r
 		}
 	}
-	return group
+
+	return res
 }
