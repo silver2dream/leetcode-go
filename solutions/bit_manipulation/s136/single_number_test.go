@@ -1,16 +1,16 @@
-package s231
+package s136
 
 import (
 	"github.com/smartystreets/goconvey/convey"
 	"testing"
 )
 
-func TestPowerOfTwo(t *testing.T) {
-	convey.Convey("PowerOfTwo", t, func() {
+func TestSingleNumber(t *testing.T) {
+	convey.Convey("SingleNumber", t, func() {
 		convey.Convey("Case1", func() {
-			s := 16
-			result := isPowerOfTwo(s)
-			expect := true
+			s := []int{2, 2, 1}
+			result := singleNumber(s)
+			expect := 1
 			convey.So(result, convey.ShouldResemble, expect)
 		})
 
